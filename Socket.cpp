@@ -119,6 +119,18 @@ bool Socket::send ( const std::string s ) const
     }
 }
 
+bool Socket::send ( const char *s, size_t size ) const
+{
+  int status = ::send ( m_sock, s, size, MSG_NOSIGNAL);
+  if ( status == -1 )
+    {
+      return false;
+    }
+  else
+    {
+      return true;
+    }
+}
 
 int Socket::recv ( std::string& s ) const
 {

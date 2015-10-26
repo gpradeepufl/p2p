@@ -27,9 +27,7 @@ const ClientSocket& ClientSocket::operator << ( const std::string& s ) const
     }
 
   return *this;
-
 }
-
 
 const ClientSocket& ClientSocket::operator >> ( std::string& s ) const
 {

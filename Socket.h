@@ -15,7 +15,7 @@
 
 const int MAXHOSTNAME = 200;
 const int MAXCONNECTIONS = 5;
-const int MAXRECV = 500;
+const int MAXRECV = 10000;
 
 class Socket
 {
@@ -34,6 +34,7 @@ class Socket
 
   // Data Transimission
   bool send ( const std::string ) const;
+  bool send ( const char * s, size_t size) const;
   int recv ( std::string& ) const;
 
 
@@ -45,8 +46,6 @@ class Socket
 
   int m_sock;
   sockaddr_in m_addr;
-
-
 };
 
 

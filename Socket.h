@@ -15,12 +15,13 @@
 
 const int MAXHOSTNAME = 200;
 const int MAXCONNECTIONS = 5;
-const int MAXRECV = 10000;
+const int MAXRECV = 100;
 
 class Socket
 {
  public:
   Socket();
+  Socket(bool is_server, std::string host, int port);
   virtual ~Socket();
 
   // Server initialization
@@ -36,6 +37,7 @@ class Socket
   bool send ( const std::string ) const;
   bool send ( const char * s, size_t size) const;
   int recv ( std::string& ) const;
+  int recv (char *buff) const;
 
 
   void set_non_blocking ( const bool );

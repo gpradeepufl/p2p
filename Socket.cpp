@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Socket.h"
+#include "SocketException.h"
 #include "string.h"
 #include <string.h>
 #include <errno.h>
@@ -17,6 +18,26 @@ Socket::Socket() :
 	   0,
 	   sizeof ( m_addr ) );
 
+}
+
+Socket::Socket(bool is_server, std::string host, int port) : m_sock ( -1 )
+{
+
+	memset ( &m_addr, 0, sizeof ( m_addr ) );
+	if (!create()) {
+		throw SocketException ( "Could not create socket." );
+	}
+	if (!is_server) {
+		if (!connect(host, port)) {
+			throw SocketException ( "Could not bind to port" );
+		}
+	} else {
+		if ( ! Socket::bind ( port ) )
+			throw SocketException ( "Could not bind to port." );
+
+		if ( ! Socket::listen() )
+			throw SocketException ( "Could not listen to socket." );
+	}
 }
 
 Socket::~Socket()
@@ -130,6 +151,17 @@ bool Socket::send ( const char *s, size_t size ) const
     {
       return true;
     }
+}
+
+int Socket::recv (char *buf) const
+{
+	memset ( buf, 0, MAXRECV + 1 );
+	int status = ::recv ( m_sock, buf, MAXRECV, 0 );
+	if ( status == -1 || status == 0 ) {
+		//std::cout << "status ==    errno == " << status << errno << "  in Socket::recv\n";
+		return 0;
+	}
+	return status;
 }
 
 int Socket::recv ( std::string& s ) const

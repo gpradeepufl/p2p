@@ -1,0 +1,29 @@
+Enter Client id: Enter Upload Socket: Enter Download Socket: Getting Resp from server 
+File Name: in.txt Chunk size: 20
+Received CHUNK# 1 100 Bytes
+Received CHUNK# 4 100 Bytes
+Received CHUNK# 7 100 Bytes
+Received CHUNK# 10 100 Bytes
+Received CHUNK# 13 100 Bytes
+Received CHUNK# 16 100 Bytes
+Received CHUNK# 19 100 Bytes
+DThread created
+[DOWNLOADER]: Connected to SERVER
+Uploader Thread created
+[UPLOADER]: Waiting to connect to Client
+[UPLOADER]: Client Connected: 13
+[UPLOADER]: Client requested CID: 1TRANSFERED 
+[UPLOADER]: Client requested CID: 2TRANSFERED 
+[UPLOADER]: Client requested CID: 4TRANSFERED 
+[UPLOADER]: Client requested CID: 5TRANSFERED 
+[UPLOADER]: Client requested CID: 7TRANSFERED 
+[UPLOADER]: Client requested CID: 8TRANSFERED 
+[UPLOADER]: Client requested CID: 10TRANSFERED 
+[UPLOADER]: Client requested CID: 11TRANSFERED 
+[UPLOADER]: Client requested CID: 13TRANSFERED 
+[UPLOADER]: Client requested CID: 14TRANSFERED 
+[UPLOADER]: Client requested CID: 16TRANSFERED 
+[UPLOADER]: Client requested CID: 17TRANSFERED 
+[UPLOADER]: Client requested CID: 19TRANSFERED 
+Sending Done 
+[DOWNLOADER]: DONE with DOWNLOADING
